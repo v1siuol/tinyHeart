@@ -16,6 +16,7 @@ var ane;
 var fruit;
 
 var mom;
+var baby;
 
 var mx;
 var my;
@@ -51,6 +52,9 @@ function init() {
   mom = new momObj();
   mom.init();
 
+  baby = new babyObj();
+  baby.init();
+
   mx = canWidth * 0.5;
   my = canHeight * 0.5;
 }
@@ -70,6 +74,8 @@ function gameloop() {
   ctx1.clearRect(0, 0, canWidth, canHeight);
   mom.draw();
   momFruitsCollision();
+  baby.draw();
+
 }
 
 function onMouseMove(e) {
