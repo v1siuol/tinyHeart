@@ -32,6 +32,8 @@ var momBodyBlue = [];
 
 var data;
 
+var wave;
+
 document.body.onload = game;
 function game() {
   init();
@@ -106,6 +108,9 @@ function init() {
   ctx1.font = "30px Verdana";
   ctx1.textAlign = "center"; // left, center, right
 
+  wave = new waveObj();
+  wave.init();
+
 }
 function gameloop() {
   window.requestAnimFrame(gameloop); // setInterval, setTimeout, frame per second
@@ -127,6 +132,7 @@ function gameloop() {
   momBabyCollision();
 
   data.draw();
+  wave.draw();
 }
 
 function onMouseMove(e) {
