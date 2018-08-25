@@ -64,13 +64,19 @@ function gameloop() {
   ane.draw();
   fruitMonitor();
   fruit.draw();
+
   ctx1.clearRect(0, 0, canWidth, canHeight);
   mom.draw();
+  momFruitsCollision();
 }
 
 function onMouseMove(e) {
   if (e.offSetX || e.layerX) {
-    mx = e.offSetX == undefined ? e.layerX : e.offSetX;
-    my = e.offSetY == undefined ? e.layerY : e.offSetY;
+    mx = e.offSetX == undefined
+      ? e.layerX
+      : e.offSetX;
+    my = e.offSetY == undefined
+      ? e.layerY
+      : e.offSetY;
   }
 }

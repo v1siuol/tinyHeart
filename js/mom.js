@@ -8,7 +8,7 @@ var momObj = function() {
 }
 momObj.prototype.init = function() {
   this.x = canWidth * 0.5;
-  this. y = canHeight * 0.5;
+  this.y = canHeight * 0.5;
   this.angle = 0;
   this.bigEye.src = "./src/bigEye0.png";
   this.bigBody.src = "./src/bigSwim0.png";
