@@ -59,6 +59,8 @@ function gameloop() {
   var now = Date.now()
   deltaTime = now - lastTime;
   lastTime = now;
+  if (deltaTime > 40)
+    deltaTime = 40;
 
   drawBackground();
   ane.draw();
