@@ -14,6 +14,8 @@ var bgPic = new Image();
 
 var ane;
 
+var mom;
+
 document.body.onload = game;
 function game() {
   init();
@@ -39,6 +41,9 @@ function init() {
 
   fruit = new fruitObj();
   fruit.init();
+
+  mom = new momObj();
+  mom.init();
 }
 function gameloop() {
   window.requestAnimFrame(gameloop); // setInterval, setTimeout, frame per second
@@ -50,4 +55,6 @@ function gameloop() {
   ane.draw();
   fruitMonitor();
   fruit.draw();
+  ctx1.clearRect(0, 0, canWidth, canHeight);
+  mom.draw();
 }
