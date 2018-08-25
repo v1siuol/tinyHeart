@@ -103,6 +103,9 @@ function init() {
     momBodyBlue[i].src = "./src/bigSwimBlue" + i + ".png";
   }
 
+  ctx1.font = "30px Verdana";
+  ctx1.textAlign = "center"; // left, center, right
+
 }
 function gameloop() {
   window.requestAnimFrame(gameloop); // setInterval, setTimeout, frame per second
