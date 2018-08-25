@@ -11,3 +11,12 @@ function momFruitsCollision() {
     }
   }
 }
+
+// mom baby collision
+function momBabyCollision() {
+  var l = calLength2(mom.x, mom.y, baby.x, baby.y);
+  if (l < 900) {
+    // baby recover
+    baby.babyBodyCount = 0;
+  }
+}
