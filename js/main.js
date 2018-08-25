@@ -12,6 +12,8 @@ var deltaTime;
 
 var bgPic = new Image();
 
+var ane;
+
 document.body.onload = game;
 function game() {
   init();
@@ -31,11 +33,16 @@ function init() {
 
   canWidth = can1.width;
   canHeight = can1.height;
+
+  ane = new aneObj();
+  ane.init();
 }
 function gameloop() {
   window.requestAnimFrame(gameloop); // setInterval, setTimeout, frame per second
   var now = Date.now()
   deltaTime = now - lastTime;
   lastTime = now;
+
   drawBackground();
+  ane.draw();
 }
