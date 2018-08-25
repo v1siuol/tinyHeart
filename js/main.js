@@ -36,6 +36,9 @@ function init() {
 
   ane = new aneObj();
   ane.init();
+
+  fruit = new fruitObj();
+  fruit.init();
 }
 function gameloop() {
   window.requestAnimFrame(gameloop); // setInterval, setTimeout, frame per second
@@ -45,4 +48,5 @@ function gameloop() {
 
   drawBackground();
   ane.draw();
+  fruit.draw();
 }
