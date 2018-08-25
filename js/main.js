@@ -130,12 +130,14 @@ function gameloop() {
 }
 
 function onMouseMove(e) {
-  if (e.offSetX || e.layerX) {
-    mx = e.offSetX == undefined
-      ? e.layerX
-      : e.offSetX;
-    my = e.offSetY == undefined
-      ? e.layerY
-      : e.offSetY;
+  if (!data.gameOver) {
+    if (e.offSetX || e.layerX) {
+      mx = e.offSetX == undefined
+        ? e.layerX
+        : e.offSetX;
+      my = e.offSetY == undefined
+        ? e.layerY
+        : e.offSetY;
+    }
   }
 }
