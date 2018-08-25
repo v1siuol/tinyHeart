@@ -25,6 +25,8 @@ var babyTail = [];
 var babyEye = [];
 var babyBody = [];
 
+var momTail = [];
+
 document.body.onload = game;
 function game() {
   init();
@@ -75,6 +77,11 @@ function init() {
   for (var i = 0; i < 20; i++) {
     babyBody[i] = new Image();
     babyBody[i].src = "./src/babyFade" + i + ".png";
+  }
+
+  for (var i = 0; i < 8; i++) {
+    momTail[i] = new Image();
+    momTail[i].src = "./src/bigTail" + i + ".png";
   }
 
 }
