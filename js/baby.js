@@ -2,17 +2,19 @@ var babyObj = function() {
   this.x;
   this.y;
   this.angle;
-  this.babyEye = new Image();
   this.babyBody = new Image();
 
   this.babyTailTimer = 0;
   this.babyTailCount = 0;
+
+  this.babyEyeTimer = 0;
+  this.babyEyeCount = 0;
+  this.babyEyeInterval = 1000;
 }
 babyObj.prototype.init = function() {
   this.x = canWidth * 0.5 - 50;
   this.y = canHeight * 0.5 + 50;
   this.angle = 0;
-  this.babyEye.src = "./src/babyEye0.png";
   this.babyBody.src = "./src/babyFade0.png";
 }
 
@@ -37,6 +39,20 @@ babyObj.prototype.draw = function() {
     this.babyTailTimer %= 50;
   }
 
+  // baby eye
+  this.babyEyeTimer += deltaTime;
+  if (this.babyEyeTimer > this.babyEyeInterval) {
+    this.babyEyeCount = (this.babyEyeCount + 1) % 2;
+    this.babyEyeTimer %= this.babyEyeInterval;
+
+    if (this.babyEyeCount == 0) {
+      this.babyEyeInterval = Math.random() * 1500 + 2000; // [2000, 3500)
+
+    } else {
+      this.babyEyeInterval = 200;
+    }
+  }
+
   ctx1.save();
   ctx1.translate(this.x, this.y);
   ctx1.rotate(this.angle);
@@ -44,9 +60,9 @@ babyObj.prototype.draw = function() {
   var babyTailCount = this.babyTailCount;
   ctx1.drawImage(babyTail[babyTailCount], -babyTail[babyTailCount].width * 0.5 + 23, -babyTail[babyTailCount].height * 0.5);
   ctx1.drawImage(this.babyBody, -this.babyBody.width * 0.5, -this.babyBody.height * 0.5);
-  ctx1.drawImage(this.babyEye, -this.babyEye.width * 0.5, -this.babyEye.height * 0.5);
 
-
+  var babyEyeCount = this.babyEyeCount;
+  ctx1.drawImage(babyEye[babyEyeCount], -babyEye[babyEyeCount].width * 0.5, -babyEye[babyEyeCount].height * 0.5);
 
   ctx1.restore();
 }
